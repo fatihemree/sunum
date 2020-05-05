@@ -1,0 +1,144 @@
+import 'package:UQS/Models/user.dart';
+import 'package:cached_network_image/cached_network_image.dart';
+import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:UQS/Models/service.dart';
+import 'package:UQS/Screens/Home/category/billsBanks.dart';
+import 'package:UQS/Screens/Home/category/government.dart';
+import 'package:UQS/Miscellaneous/profileClipper.dart';
+
+import 'category/university.dart';
+
+class ServiceList extends StatefulWidget {
+  @override
+  _ServiceListState createState() => _ServiceListState();
+}
+
+class _ServiceListState extends State<ServiceList> {
+  num _currentIndex = 0;
+  bool _isSelected;
+
+  int _selectedNaviation = 0;
+  final _pageOptions = [
+    University(),
+    Government(),
+    BillsBanks(),
+  ];
+
+  @override
+  Widget build(BuildContext context) {
+    final services = Provider.of<List<Service>>(context) ?? [];
+
+    final User user = Provider.of<User>(context);
+
+    final screenData = MediaQuery.of(context);
+
+    print(user.uid);
+
+    print('Current number of services: ' + (services.length).toString());
+
+    List<String> servicesCat = ["Universiteler", "Etkinlikler", "Hastaneler"];
+
+    List<Widget> _buildServiceCat(num currentIndex) {
+      return servicesCat.map((service) {
+        var index = servicesCat.indexOf(service);
+        _isSelected = _currentIndex == index;
+        return Padding(
+            padding: EdgeInsets.only(left: 25, right: 5),
+            child: GestureDetector(
+                onTap: () async {
+                  setState(() {
+                    _currentIndex = index;
+                    _selectedNaviation = index;
+                  });
+                },
+                child: Text(
+                  service,
+                  style: TextStyle(
+                      color: _isSelected ? Colors.white : Colors.white70,
+                      fontSize: _isSelected
+                          ? screenData.size.height / 45
+                          : screenData.size.height / 45,
+                      fontWeight:
+                          _isSelected ? FontWeight.bold : FontWeight.normal),
+                )));
+      }).toList();
+    }
+
+    //returns a ListView widget based on the list of services registered on the databased
+    return Scaffold(
+        body: Stack(children: <Widget>[
+      Positioned(
+          top: 0,
+          left: 0,
+          right: 0,
+          height: screenData.size.height,
+          child: Container(
+            decoration: BoxDecoration(
+                gradient: LinearGradient(colors: [
+              Color.fromRGBO(16, 127, 246, 1),
+              Color.fromRGBO(16, 127, 246, 1),
+            ])),
+            child: Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                  Container(
+                      margin: EdgeInsets.only(top: 9.0, left: 20.0),
+                      child: Text(
+                        "Hizmetler",
+                        style: TextStyle(color: Colors.white, fontSize: 30),
+                      )),
+                      //sağ üst kullanıcı bilgileri
+                  Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: <Widget>[
+                        Container(
+                          margin: EdgeInsets.only(top: 15.0, left: 20.0),
+                          child: Text(user.name,
+                              style: TextStyle(color: Colors.white)),
+                        ),
+                        SizedBox(width: 10.0),
+                        Container(
+                            margin: EdgeInsets.only(top: 10.0, right: 10),
+                            child: ClipOval(
+                              clipper: ProfileClipper(),
+                              child: CachedNetworkImage(
+                                imageUrl: user.photoUrl,
+                                width: screenData.size.height / 20,
+                                placeholder: (context, url) =>
+                                    Center(child: CircularProgressIndicator()),
+                                errorWidget: (context, url, error) =>
+                                    Icon(Icons.error),
+                              ),
+                            ))
+                      ])
+                ]),
+          )),
+      Positioned(
+        left: 0,
+               right: screenData.size.width / 15,
+        bottom: 0,
+     height: screenData.size.height / 1.2 + 40,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: _buildServiceCat(_currentIndex),
+        ),
+      ),
+      Positioned(
+          left: 0,
+          right: 0,
+          bottom: 0,
+          height: screenData.size.height / 1.2 ,
+          child: Container(
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(25),
+                    topRight: Radius.circular(25)),
+              ),
+              child: _pageOptions[_selectedNaviation])),
+    ]));
+  }
+}
