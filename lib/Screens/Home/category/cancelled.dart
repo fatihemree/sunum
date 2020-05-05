@@ -10,6 +10,63 @@ import 'package:UQS/Models/service.dart';
 
 import '../viewticket.dart';
 
+var test = {
+  "okul": {
+    0: {
+      "img":
+          "https://raw.githubusercontent.com/fatihemree/sirabende/master/pau.png",
+      "abbreviation": "PAÜ",
+      "address": "Denizli",
+      "phoneNumber": "123456789",
+      "displayName": "PAÜ"
+    },
+    1: {
+      "img":
+          "https://raw.githubusercontent.com/fatihemree/sirabende/master/osmaniye.png",
+      "abbreviation": "OKÜ",
+      "address": "osmaniye",
+      "phoneNumber": "123456789",
+      "displayName": "OKü"
+    },
+    2: {
+      "img":
+          "https://raw.githubusercontent.com/fatihemree/sirabende/master/izmir.png",
+      "abbreviation": "İZM",
+      "address": "İzmir",
+      "phoneNumber": "5464545646",
+      "displayName": "İZM"
+    },
+    3: {
+      "img":
+          "https://raw.githubusercontent.com/fatihemree/sirabende/master/ankara.png",
+      "abbreviation": "ANK",
+      "address": "Ankara",
+      "phoneNumber": "5464545646",
+      "displayName": "ANK"
+    },
+  },
+  "event": {
+    0: {
+      "img":
+          "https://raw.githubusercontent.com/fatihemree/sirabende/master/pautiyatro.png",
+      "abbreviation": "PAUTYT",
+      "address": "Denizli",
+      "phoneNumber": "5464545646",
+      "displayName": "PAUTYT"
+    }
+  },
+  "hastane": {
+    0: {
+      "img":
+          "https://raw.githubusercontent.com/fatihemree/sirabende/master/pauhastane.jpg",
+      "abbreviation": "PAUTYT",
+      "address": "Denizli",
+      "phoneNumber": "5464545646",
+      "displayName": "PAUTYT"
+    }
+  },
+};
+
 class CancelledPage extends StatefulWidget {
   @override
   _CancelledPageState createState() => _CancelledPageState();
@@ -71,6 +128,19 @@ class ActiveTickets extends StatelessWidget {
     var trigger = '${tickets[index].ticketRaw - tickets[index].trigger}';
     var refNo = '${tickets[index].refNo}';
 
+    var kosul = tickets[index].ticketNo;
+    var resimUpdate = "";
+//loggerNoStack.i(kosul.substring(0, 3));
+    switch (kosul.substring(0, 3)) {
+      case "PAÜ":
+        resimUpdate = test["okul"][0]["img"];
+        break;
+      case "ANK":
+        resimUpdate = test["okul"][3]["img"];
+        break;
+      default:
+    }
+
     trigger == zero
         ? isalreadyNotified == zero ? TicketDatabase().initNotify(refNo) : null
         : null;
@@ -103,7 +173,8 @@ class ActiveTickets extends StatelessWidget {
                               children: <Widget>[
                                 Container(
                                   child: CachedNetworkImage(
-                                    imageUrl: '${service.photoUrl}',
+                                   // imageUrl: '${service.photoUrl}',
+                                    imageUrl: resimUpdate,
                                     width: 75.0,
                                     height: 75.0,
                                     placeholder: (context, url) => Center(
@@ -150,7 +221,8 @@ class ActiveTickets extends StatelessWidget {
                                                   email: service.email,
                                                   phoneNumber:
                                                       service.phoneNumber,
-                                                  photoUrl: service.photoUrl,
+                                                 // photoUrl: service.photoUrl,
+                                                  photoUrl: resimUpdate,
                                                   ticketCount:
                                                       service.ticketCount,
                                                   ticketNo: ticketNo,

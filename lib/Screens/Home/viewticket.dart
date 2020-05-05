@@ -180,7 +180,7 @@ class _ViewTicketState extends State<ViewTicket> {
                             Color.fromRGBO(128, 18, 10, .6),
                           ])),
                       child: Center(
-                        child: Text("Cancel Ticket",
+                        child: Text("Bilet İptal",
                             style: TextStyle(
                                 color: Colors.white,
                                 fontSize: 15,

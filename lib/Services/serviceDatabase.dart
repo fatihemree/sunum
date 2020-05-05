@@ -22,13 +22,18 @@ class ServiceDatabase {
       print("servis liste");
       print(doc);
       return Service(
-        abbreviation: doc.data['abbreviation'] ?? '',
-        address: doc.data['address'] ?? '',
-        displayName: doc.data['displayName'] ?? '',
-        email: doc.data['email'] ?? '',
-        phoneNumber: doc.data['phoneNumber'] ?? '',
-        //photoUrl: doc.data['photoUrl'] ?? '',
-        photoUrl: test['3'] ?? '',
+        // abbreviation: doc.data['abbreviation'] ?? '',
+        // address: doc.data['address'] ?? '',
+        // displayName: doc.data['displayName'] ?? '',
+        // email: doc.data['email'] ?? '',
+        // phoneNumber: doc.data['phoneNumber'] ?? '',
+        // photoUrl: doc.data['photoUrl'] ?? '',
+        abbreviation: test["okul"][countUni]["abbreviation"] ?? '',
+        address: test["okul"][countUni]["address"] ?? '',
+        displayName: test["okul"][countUni]["displayName"] ?? '',
+        email: test["okul"][countUni]["email"] ?? '',
+        phoneNumber: test["okul"][countUni]["phoneNumber"] ?? '',
+        photoUrl: test["okul"][countUni]["img"] ?? '',
         ticketCount: doc.data['ticketCount'] ?? 0,
         ticketCountDone: doc.data['ticketCountDone'] ?? 0,
         uid: doc.data['uid'] ?? '',
@@ -39,16 +44,22 @@ class ServiceDatabase {
 
   //creating an instance of the class Service(ara sa models na folder) para istore ang data halin sa database
   //tickects Database
+  //deneme
   Service _serviceDataFromSnapshot(DocumentSnapshot snapshot) {
     countUni = (countUni < limitUni ) ? countUni += 1 : 0;
     return Service(
-      abbreviation: snapshot.data['abbreviation'],
-      address: snapshot.data['address'],
-      displayName: snapshot.data['displayName'] ?? '',
-      email: snapshot.data['email'] ?? '',
-      phoneNumber: snapshot.data['phoneNumber'] ?? '',
+      // abbreviation: snapshot.data['abbreviation'],
+      // address: snapshot.data['address'],
+      // displayName: snapshot.data['displayName'] ?? '',
+      // email: snapshot.data['email'] ?? '',
+      // phoneNumber: snapshot.data['phoneNumber'] ?? '',
       // photoUrl: snapshot.data['photoUrl'] ?? '',
-      photoUrl: test["okul"][countUni]["img"] ?? '',
+       abbreviation: test["okul"][countUni]["abbreviation"] ?? '',
+        address: test["okul"][countUni]["address"] ?? '',
+        displayName: test["okul"][countUni]["displayName"] ?? '',
+        email: test["okul"][countUni]["email"] ?? '',
+        phoneNumber: test["okul"][countUni]["phoneNumber"] ?? '',
+        photoUrl: test["okul"][countUni]["img"] ?? '',
       ticketCount: snapshot.data['ticketCount'] ?? 0,
       ticketCountDone: snapshot.data['ticketCountDone'] ?? 0,
       uid: snapshot.data['uid'] ?? '',
@@ -92,6 +103,7 @@ class ServiceDatabase {
         categoryIndex: doc.data['categoryIndex'] ?? 0,
       );
     }).toList();
+    
   }
 
   Stream<List<UniversityCategory>> get universityCategory {
@@ -108,13 +120,20 @@ class ServiceDatabase {
   List<GovernmentCategory> _serviceListGovernmentFromSnapshot(
       QuerySnapshot snapshot) {
     return snapshot.documents.map((doc) {
+      //countEvent = (countEvent < 1) ? countEvent += 1 : 0;
       return GovernmentCategory(
-        abbreviation: doc.data['abbreviation'] ?? '',
-        address: doc.data['address'] ?? '',
-        displayName: doc.data['displayName'] ?? '',
-        email: doc.data['email'] ?? '',
-        phoneNumber: doc.data['phoneNumber'] ?? '',
-        photoUrl: doc.data['photoUrl'] ?? '',
+        // abbreviation: doc.data['abbreviation'] ?? '',
+        // address: doc.data['address'] ?? '',
+        // displayName: doc.data['displayName'] ?? '',
+        // email: doc.data['email'] ?? '',
+        // phoneNumber: doc.data['phoneNumber'] ?? '',
+        // photoUrl: doc.data['photoUrl'] ?? '',
+        abbreviation: test["event"][0]["abbreviation"] ?? '',
+        address: test["event"][0]["address"] ?? '',
+        displayName: test["event"][0]["displayName"] ?? '',
+        email: test["event"][0]["email"] ?? '',
+        phoneNumber: test["event"][0]["phoneNumber"] ?? '',
+        photoUrl: test["event"][0]["img"] ?? '',
         ticketCount: doc.data['ticketCount'] ?? 0,
         ticketCountDone: doc.data['ticketCountDone'] ?? 0,
         uid: doc.data['uid'] ?? '',
@@ -137,13 +156,20 @@ class ServiceDatabase {
   List<BillsBanksCategory> _serviceListBillsBanksFromSnapshot(
       QuerySnapshot snapshot) {
     return snapshot.documents.map((doc) {
+      countHastane = (countHastane < 1) ? countHastane += 1 : 0;
       return BillsBanksCategory(
-        abbreviation: doc.data['abbreviation'] ?? '',
-        address: doc.data['address'] ?? '',
-        displayName: doc.data['displayName'] ?? '',
-        email: doc.data['email'] ?? '',
-        phoneNumber: doc.data['phoneNumber'] ?? '',
-        photoUrl: doc.data['photoUrl'] ?? '',
+        // abbreviation: doc.data['abbreviation'] ?? '',
+        // address: doc.data['address'] ?? '',
+        // displayName: doc.data['displayName'] ?? '',
+        // email: doc.data['email'] ?? '',
+        // phoneNumber: doc.data['phoneNumber'] ?? '',
+        // photoUrl: doc.data['photoUrl'] ?? '',
+        abbreviation: test["hastane"][countHastane]["abbreviation"] ?? '',
+        address: test["hastane"][countHastane]["address"] ?? '',
+        displayName: test["hastane"][countHastane]["displayName"] ?? '',
+        email: test["hastane"][countHastane]["email"] ?? '',
+        phoneNumber: test["hastane"][countHastane]["phoneNumber"] ?? '',
+        photoUrl: test["hastane"][countHastane]["img"] ?? '',
         ticketCount: doc.data['ticketCount'] ?? 0,
         ticketCountDone: doc.data['ticketCountDone'] ?? 0,
         uid: doc.data['uid'] ?? '',

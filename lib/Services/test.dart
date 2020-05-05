@@ -1,33 +1,68 @@
-var limitUni=2;
-var countUni = 0, countCevre = 0, countHastane = 0;
+var limitUni=3;
+var countUni = 0, countEvent = 0, countHastane = 0;
 
 var test = {
   "okul": {
     0: {
       "img":
-          "https://raw.githubusercontent.com/fatihemree/sirabende/master/google.png",
-      "abbreviation": "AAA",
-      "address": "BBB",
+          "https://raw.githubusercontent.com/fatihemree/sirabende/master/pau.png",
+      "abbreviation": "PAÜ",
+      "address": "Denizli",
       "phoneNumber": "123456789",
-      "displayName": "CCC"
+      "displayName": "PAÜ"
     },
     1: {
       "img":
-          "https://raw.githubusercontent.com/fatihemree/sirabende/master/logoTitle.png",
-      "abbreviation": "PAÜ",
-      "address": "osm",
+          "https://raw.githubusercontent.com/fatihemree/sirabende/master/osmaniye.png",
+      "abbreviation": "OKÜ",
+      "address": "osmaniye",
       "phoneNumber": "123456789",
-      "displayName": "displayName2"
+      "displayName": "OKü"
     },
     2: {
       "img":
-          "https://raw.githubusercontent.com/fatihemree/sirabende/master/whatsapp.png",
+          "https://raw.githubusercontent.com/fatihemree/sirabende/master/izmir.png",
       "abbreviation": "İZM",
-      "address": "DEM",
-      "phoneNumber": "54645",
-      "displayName": "görü"
+      "address": "İzmir",
+      "phoneNumber": "5464545646",
+      "displayName": "İZM"
     },
-  }
+     3: {
+      "img":
+          "https://raw.githubusercontent.com/fatihemree/sirabende/master/ankara.png",
+      "abbreviation": "ANK",
+      "address": "Ankara",
+      "phoneNumber": "5464545646",
+      "displayName": "ANK"
+    },
+  },
+"event":{
+0: {
+      "img":
+          "https://raw.githubusercontent.com/fatihemree/sirabende/master/pautiyatro.png",
+      "abbreviation": "PAUTYT",
+      "address": "Denizli",
+      "phoneNumber": "5464545646",
+      "displayName": "PAUTYT"
+    }
+
+},
+"hastane":{
+0: {
+      "img":
+          "https://raw.githubusercontent.com/fatihemree/sirabende/master/pauhastane.jpg",
+      "abbreviation": "PAUTYT",
+      "address": "Denizli",
+      "phoneNumber": "5464545646",
+      "displayName": "PAUTYT"
+    }
+
+},
+
+
+
+
+
 };
 
 //         abbreviation: doc.data['abbreviation'] ?? '',

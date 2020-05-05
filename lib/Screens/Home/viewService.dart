@@ -203,10 +203,10 @@ class _ViewServiceState extends State<ViewService> {
                                   Color.fromRGBO(16, 127, 246, 1),
                                 ])),
                             child: Center(
-                                child: Text("Live Queue",
+                                child: Text("Canlı Kuyruk",
                                     style: TextStyle(
                                         color: Colors.white,
-                                        fontSize: 20,
+                                        fontSize: 18,
                                         fontWeight: FontWeight.bold))),
                           ),
                         ),
@@ -232,7 +232,7 @@ class _ViewServiceState extends State<ViewService> {
                                   Color.fromRGBO(16, 127, 246, 1),
                                 ])),
                             child: Center(
-                                child: Text("Queue",
+                                child: Text("Sıra al",
                                     style: TextStyle(
                                         color: Colors.white,
                                         fontSize: 20,

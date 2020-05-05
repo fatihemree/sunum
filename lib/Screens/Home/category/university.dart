@@ -17,8 +17,8 @@ class _UniversityState extends State<University> {
   Widget build(BuildContext context) {
     loggerNoStack.i('üniversite build');
     final services = Provider.of<List<UniversityCategory>>(context) ?? [];
-    services.removeAt(4);
-    services.removeAt(3);
+    //services.removeAt(4);
+    //services.removeAt(3);
     //services.removeAt(2);
     return Container(
       height: 600,

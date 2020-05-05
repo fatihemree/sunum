@@ -179,8 +179,8 @@ class _AuthPageState extends State<AuthPage> {
 
                                   dynamic result = await _auth.signInEmail(
                                       _email, _password);
-
-                                  if (result != null) {
+//düzeltielcek
+                                  if (result == null) {
                                     _showSnackBar();
                                   } else {
                                     Navigator.of(context).pushNamed('/home');
