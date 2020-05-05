@@ -1,4 +1,8 @@
-#UQS
+#SIRADAKİ KİM
+
+##siradaki.kim
+
+##UQS
 
 ## Recent Updates
 ----------------------------------------------------------
@@ -14,7 +18,6 @@ Flutter, Dart, Firebase, Cloud Firestore, Angular
 
 ## Developers
 ----------------------------------------------------------
-Dancedrick Alegroso | Lead developer, Full Stack  <br/>
-Carl Palisan | Flutter Lead developer <br/>
-Steve Felizard | Flutter front end, UI <br/>
-Gaille Cabanggay | Firebase, Flutter <br/>
+Fatih Emre Kalem | Lead developer, Full Stack  <br/>
+Neslihan Savur | Flutter front end, UI <br/>
+Furkan Güneş | Firebase, Flutter <br/>
