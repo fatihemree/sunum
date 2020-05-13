@@ -151,7 +151,7 @@ class _QueueState extends State<Queue> {
                             Color.fromRGBO(16, 127, 246, .6),
                           ])),
                       child: Center(
-                          child: Text("Queue",
+                          child: Text("Sıra al",
                               style: TextStyle(
                                   color: Colors.white,
                                   fontSize: 20,

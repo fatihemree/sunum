@@ -157,19 +157,24 @@ class ActiveTickets extends StatelessWidget {
     print(service.ticketCount);
     var kosul=tickets[index].ticketNo;
     var resimUpdate="";
+    var contentUpdate="";
 loggerNoStack.i(kosul.substring(0, 3));
 switch (kosul.substring(0, 3)) {
   case "PAÜ":
     resimUpdate=test["okul"][0]["img"];
+    contentUpdate=test["okul"][0]["abbreviation"];
     break;
     case "ANK":
     resimUpdate=test["okul"][3]["img"];
+    contentUpdate=test["okul"][3]["abbreviation"];
     break;
     case "OKÜ":
     resimUpdate=test["okul"][1]["img"];
+    contentUpdate=test["okul"][1]["abbreviation"];
     break;
     case "İZM":
     resimUpdate=test["okul"][2]["img"];
+    contentUpdate=test["okul"][2]["abbreviation"];
     break;
   default:
 }
@@ -241,7 +246,8 @@ switch (kosul.substring(0, 3)) {
                                   Navigator.of(context).push(MaterialPageRoute(
                                       builder: (context) => ViewTicket(
                                           displayName: service.displayName,
-                                          abbreviation: service.abbreviation,
+                                          // abbreviation: service.abbreviation,
+                                          abbreviation: contentUpdate,
                                           email: service.email,
                                           phoneNumber: service.phoneNumber,
                                           //photoUrl: service.photoUrl,

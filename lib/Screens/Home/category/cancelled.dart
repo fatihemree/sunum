@@ -130,16 +130,21 @@ class ActiveTickets extends StatelessWidget {
 
     var kosul = tickets[index].ticketNo;
     var resimUpdate = "";
-//loggerNoStack.i(kosul.substring(0, 3));
-    switch (kosul.substring(0, 3)) {
-      case "PAÜ":
-        resimUpdate = test["okul"][0]["img"];
-        break;
-      case "ANK":
-        resimUpdate = test["okul"][3]["img"];
-        break;
-      default:
-    }
+switch (kosul.substring(0, 3)) {
+  case "PAÜ":
+    resimUpdate=test["okul"][0]["img"];
+    break;
+    case "ANK":
+    resimUpdate=test["okul"][3]["img"];
+    break;
+    case "OKÜ":
+    resimUpdate=test["okul"][1]["img"];
+    break;
+    case "İZM":
+    resimUpdate=test["okul"][2]["img"];
+    break;
+  default:
+}
 
     trigger == zero
         ? isalreadyNotified == zero ? TicketDatabase().initNotify(refNo) : null

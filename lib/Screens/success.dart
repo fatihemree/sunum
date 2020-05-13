@@ -38,14 +38,14 @@ class _SuccessPageState extends State<SuccessPage> {
                     ),
                     Positioned(
                       child: FadeAnimation(1.10, Container(
-                        child: Center(child: Text("You are all good! ", style: TextStyle(color: Colors.white, fontSize: 40, fontWeight: FontWeight.bold)))
+                        child: Center(child: Text("Kayıt başarılı ", style: TextStyle(color: Colors.white, fontSize: 40, fontWeight: FontWeight.bold)))
                       ))
                     ),
                     Positioned(
                       child: FadeAnimation(1.15, Container(
                         padding: EdgeInsets.all(10),
                         margin: EdgeInsets.only(top: 100),
-                        child: Center(child: Text("We sent you a verification email, please verify before using UQS.", style: TextStyle(color: Colors.white, fontSize: 20), textAlign: TextAlign.center,) ,)
+                        child: Center(child: Text("Mail adresinize gelen aktive kodunu onaylayın.", style: TextStyle(color: Colors.white, fontSize: 20), textAlign: TextAlign.center,) ,)
                       ))
                     )
                   ]
@@ -72,7 +72,7 @@ class _SuccessPageState extends State<SuccessPage> {
                           )
                         ),
                         child: Center(
-                          child: Text('Bring me to login', style: TextStyle(color: Colors.white, ))
+                          child: Text('Giriş Sayfasına Dön', style: TextStyle(color: Colors.white, ))
                         ),
                       ))
                     )

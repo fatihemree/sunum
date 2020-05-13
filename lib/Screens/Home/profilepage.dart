@@ -163,7 +163,7 @@ class _ProfilepageState extends State<Profilepage> {
                         onPressed: editModeDisabled,
                         child: Text("Disable Edit Mode")),
                     Container(
-                        height: screenData.size.height / 3,
+                        height: screenData.size.height / 2.8,
                         decoration: BoxDecoration(
                             image: DecorationImage(
                                 image: AssetImage('assets/Pbackground.png'),
